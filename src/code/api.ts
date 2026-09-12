@@ -187,7 +187,6 @@ async function getAssetBufferInternal(url: string, headers: any, extraStr?: stri
         }*/
         return data
     } else {
-        warn(true, "Failed to get assetBufer for", fetchStr, "status:", response.status)
         return response
     }
 }
@@ -1084,11 +1083,9 @@ export const API = {
                         }
                         return mesh
                     } catch { //just return a response because draco decode or something else might fail
-                        warn(true, "Failed to get mesh, mesh.fromBuffer failed, is DracoDecoderModule available?")
                         return new Response()
                     }
                 } else {
-                    warn(true, "Failed to get mesh, response was not an ArrayBuffer")
                     return response
                 }
             }
